@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createBrowserHistory } from "history";
+//
+import { AppActions } from "redux/app/slice";
+import appSelectors from "redux/app/selectors";
+import LoadingScreen from "components/common/LoadingScreen";
+import { Route, Router, Switch } from "react-router-dom";
+import RouteGuard from "./components/common/RouteGuard";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: FC = () => {
+    const isAppInitialized = useSelector(appSelectors.getIsInitialized);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(AppActions.initializeAppRequest());
+    }, [dispatch]);
+
+    if (!isAppInitialized) {
+        return <LoadingScreen />;
+    }
+
+    return (
+        <Router history={createBrowserHistory()}>
+            <Switch>
+                <Route path="/login" exact>
+                    <RouteGuard inverse redirectTo={"/"}>
+                        {null}
+                    </RouteGuard>
+                </Route>
+                <Route path="/new-shop" exact>
+                    <RouteGuard>{null}</RouteGuard>
+                </Route>
+                <Route path="/" exact>
+                    <RouteGuard>{null}</RouteGuard>
+                </Route>
+            </Switch>
+        </Router>
+    );
+};
 
 export default App;
