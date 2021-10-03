@@ -7,6 +7,7 @@ import appSelectors from "redux/app/selectors";
 import LoadingScreen from "components/common/LoadingScreen";
 import { Route, Router, Switch } from "react-router-dom";
 import RouteGuard from "./components/common/RouteGuard";
+import Products from "./components/pages/Products";
 
 const App: FC = () => {
     const isAppInitialized = useSelector(appSelectors.getIsInitialized);
@@ -29,8 +30,10 @@ const App: FC = () => {
                         {null}
                     </RouteGuard>
                 </Route>
-                <Route path="/new-shop" exact>
-                    <RouteGuard>{null}</RouteGuard>
+                <Route path="/" exact>
+                    <RouteGuard>
+                        <Products />
+                    </RouteGuard>
                 </Route>
                 <Route path="/" exact>
                     <RouteGuard>{null}</RouteGuard>
