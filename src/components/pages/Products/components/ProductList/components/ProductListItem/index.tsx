@@ -23,9 +23,6 @@ const ProductListItem: FC<Props> = ({ productId }) => {
 
     return (
         <div className={css["ProductListItem"]} onClick={handleClick}>
-            <div className={css["ProductListItem__image-wrapper"]}>
-                <img src={product.imgURLs[0]} alt="" />
-            </div>
             <div className={css["ProductListItem__name"]}>
                 <span>{product.name}</span>
             </div>

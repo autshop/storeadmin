@@ -11,24 +11,6 @@
     font-size: 12px;
   }
 
-  &__image-wrapper {
-    flex: 0 0 66px;
-    height: 58px;
-    overflow: hidden;
-    position: relative;
-    background: red;
-    margin-right: 40px;
-
-    img {
-      width: 100%;
-      height: auto;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-
   &__name {
     flex: 0 0 152px;
     margin-right: 172px;

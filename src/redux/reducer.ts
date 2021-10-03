@@ -5,12 +5,14 @@ import { ProductReducer } from "redux/product/slice";
 import { AuthReducer } from "redux/auth/slice";
 import { AppReducer } from "redux/app/slice";
 import { OrderReducer } from "redux/order/slice";
+import { VariantReducer } from "redux/variant/slice";
 
 const combinedReducers = combineReducers<StoreState>({
     product: ProductReducer,
     auth: AuthReducer,
     app: AppReducer,
-    order: OrderReducer
+    order: OrderReducer,
+    variant: VariantReducer
 });
 
 export default combinedReducers;
