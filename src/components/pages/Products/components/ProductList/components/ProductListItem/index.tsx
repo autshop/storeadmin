@@ -1,5 +1,6 @@
 import { FC, memo } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 //
 import productSelectors from "redux/product/selectors";
 //
@@ -12,12 +13,16 @@ type Props = {
 const ProductListItem: FC<Props> = ({ productId }) => {
     const product = useSelector(productSelectors.createGetProductById(productId));
 
+    const history = useHistory();
+
+    const handleClick = () => history.push(`/products/${productId}`);
+
     if (!product) {
         return null;
     }
 
     return (
-        <div className={css["ProductListItem"]}>
+        <div className={css["ProductListItem"]} onClick={handleClick}>
             <div className={css["ProductListItem__image-wrapper"]}>
                 <img src={product.imgURLs[0]} alt="" />
             </div>

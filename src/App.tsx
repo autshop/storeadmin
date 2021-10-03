@@ -1,16 +1,16 @@
 import React, { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createBrowserHistory } from "history";
-import { Route, Router, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 //
 import { AppActions } from "redux/app/slice";
 import appSelectors from "redux/app/selectors";
 import LoadingScreen from "components/common/LoadingScreen";
 import RouteGuard from "components/common/RouteGuard";
 import Products from "components/pages/Products";
+import Orders from "components/pages/Orders";
+import Product from "components/pages/Product";
 //
 import "./styles/global.style.scss";
-import Orders from "./components/pages/Orders";
 
 const App: FC = () => {
     const isAppInitialized = useSelector(appSelectors.getIsInitialized);
@@ -26,7 +26,7 @@ const App: FC = () => {
     }
 
     return (
-        <Router history={createBrowserHistory()}>
+        <BrowserRouter>
             <Switch>
                 <Route path="/login" exact>
                     <RouteGuard inverse redirectTo={"/"}>
@@ -43,8 +43,13 @@ const App: FC = () => {
                         <Orders />
                     </RouteGuard>
                 </Route>
+                <Route path="/products/:id" exact>
+                    <RouteGuard>
+                        <Product />
+                    </RouteGuard>
+                </Route>
             </Switch>
-        </Router>
+        </BrowserRouter>
     );
 };
 

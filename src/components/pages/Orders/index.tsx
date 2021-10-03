@@ -1,12 +1,12 @@
 import { FC, memo } from "react";
 //
 import OrderList from "components/pages/Orders/components/OrderList";
-import CommonLayout from "components/common/layout/CommonLayout";
+import PageLayout from "components/common/layout/PageLayout";
 //
 import css from "./style.module.scss";
 
 const Orders: FC = () => (
-    <CommonLayout title="Orders">
+    <PageLayout title="Orders">
         <div className={css["Orders"]}>
             <div className={css["Orders__list-header"]}>
                 <div className={css["Orders__list-header__order-number"]}>
@@ -29,7 +29,7 @@ const Orders: FC = () => (
                 <OrderList />
             </div>
         </div>
-    </CommonLayout>
+    </PageLayout>
 );
 
 export default memo(Orders);

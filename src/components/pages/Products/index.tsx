@@ -1,12 +1,12 @@
 import { FC, memo } from "react";
 //
 import ProductList from "components/pages/Products/components/ProductList";
-import CommonLayout from "components/common/layout/CommonLayout";
+import PageLayout from "components/common/layout/PageLayout";
 //
 import css from "./style.module.scss";
 
 const Products: FC = () => (
-    <CommonLayout title="Products">
+    <PageLayout title="Products">
         <div className={css["Products"]}>
             <div className={css["Products__list-header"]}>
                 <div className={css["Products__list-header__name"]}>
@@ -20,7 +20,7 @@ const Products: FC = () => (
                 <ProductList />
             </div>
         </div>
-    </CommonLayout>
+    </PageLayout>
 );
 
 export default memo(Products);
