@@ -1,6 +1,7 @@
 import { FC, memo } from "react";
 import { useSelector } from "react-redux";
 //
+import orderSelectors from "redux/order/selectors";
 //
 import css from "./style.module.scss";
 
@@ -9,23 +10,28 @@ type Props = {
 };
 
 const OrderListItem: FC<Props> = ({ orderId }) => {
-    const Order = null;
+    const order = useSelector(orderSelectors.createGetOrderById(orderId));
+
+    if (!order) {
+        return null;
+    }
+
     return (
         <div className={css["OrderListItem"]}>
             <div className={css["OrderListItem__order-number"]}>
-                <span>#23237263</span>
+                <span>{`#${order.id}`}</span>
             </div>
             <div className={css["OrderListItem__submitted-at"]}>
-                <span>2020. 02. 13. 12:15</span>
+                <span>{order.submittedAt}</span>
             </div>
             <div className={css["OrderListItem__variant-count"]}>
-                <span>3</span>
+                <span>{order.variantIds.length}</span>
             </div>
-            <div className={css["OrderListItem__customer"]}>
-                <span>Lucie Macé</span>
+            <div className={css["OrderListItem__customer-name"]}>
+                <span>{order.customerName}</span>
             </div>
             <div className={css["OrderListItem__total"]}>
-                <span>200 EUR</span>
+                <span>{`${order.total} EUR`}</span>
             </div>
         </div>
     );

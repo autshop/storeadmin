@@ -10,19 +10,19 @@ const Orders: FC = () => (
         <div className={css["Orders"]}>
             <div className={css["Orders__list-header"]}>
                 <div className={css["Orders__list-header__order-number"]}>
-                    <span>#23237263</span>
+                    <span>Order Number</span>
                 </div>
                 <div className={css["Orders__list-header__submitted-at"]}>
-                    <span>2020. 02. 13. 12:15</span>
+                    <span>Submitted At</span>
                 </div>
                 <div className={css["Orders__list-header__variant-count"]}>
-                    <span>3</span>
+                    <span>Variants</span>
                 </div>
-                <div className={css["Orders__list-header__customer"]}>
-                    <span>Lucie Macé</span>
+                <div className={css["Orders__list-header__customer-name"]}>
+                    <span>Customer</span>
                 </div>
                 <div className={css["Orders__list-header__total"]}>
-                    <span>200 EUR</span>
+                    <span>Total</span>
                 </div>
             </div>
             <div className={css["Orders__list-wrapper"]}>

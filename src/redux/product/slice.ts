@@ -13,6 +13,7 @@ const ProductSlice = createSlice({
             state.isLoading = true;
         },
         loadProductsSuccess: (state, action: PayloadAction<{ products: Product[] }>) => {
+            state.products = action.payload.products;
             state.isLoading = false;
         },
         loadProductsFailure: (state, action: PayloadAction<{ error: string }>) => {
