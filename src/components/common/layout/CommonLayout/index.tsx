@@ -7,12 +7,13 @@ import css from "./style.module.scss";
 
 type Props = {
     children: ReactNode;
+    title?: string;
 };
 
-const CommonLayout: FC<Props> = ({ children }) => (
+const CommonLayout: FC<Props> = ({ children, title = "" }) => (
     <div className={css["CommonLayout"]}>
         <Sidebar />
-        <MainContent>{children}</MainContent>
+        <MainContent title={title}>{children}</MainContent>
     </div>
 );
 
