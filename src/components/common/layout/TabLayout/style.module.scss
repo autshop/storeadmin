@@ -5,6 +5,7 @@
   display: flex;
   min-height: 650px;
 
+
   &__sidebar {
     flex: 0 0 220px;
 
@@ -22,6 +23,7 @@
       }
 
       &__sub-item {
+        padding-left: 22px;
         &__title {
           color: #646464;
           &-active {
@@ -32,7 +34,7 @@
     }
   }
   &__content {
-    flex: 1 0 auto;
+    flex: 0 0 calc(100% - 220px);
 
     &__title {
       margin-bottom: 32px;
@@ -41,7 +43,6 @@
       font-weight: bold;
     }
     &__container {
-
     }
   }
 }

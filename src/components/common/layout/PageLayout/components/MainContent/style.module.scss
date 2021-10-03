@@ -1,8 +1,7 @@
 .MainContent {
   flex: 1 0 auto;
-  min-height: 100vh;
-  background: #F2F2F2;
-  padding: 37px 49px 0 37px;
+  height: 100vh;
+  padding: 37px 49px 37px 37px;
 
   &__title {
     span {

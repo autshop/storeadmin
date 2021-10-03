@@ -1,0 +1,32 @@
+.VariantListItem {
+  width: 232px;
+  min-height: 302px;
+  margin-right: 59px;
+  background: #C4C4C4;
+  margin-bottom: 12px;
+
+  &__content {
+    &__image {
+      height: 232px;
+      position: relative;
+      width: 100%;
+
+      img {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &__details {
+      padding: 9px 12px;
+
+      p {
+        font-size: 12px;
+        padding-bottom: 2px;
+      }
+    }
+
+  }
+}

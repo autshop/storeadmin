@@ -1,3 +1,5 @@
 .PageLayout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 55px 1fr;
+  height: 100vh;
 }

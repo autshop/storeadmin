@@ -9,6 +9,7 @@ import RouteGuard from "components/common/RouteGuard";
 import Products from "components/pages/Products";
 import Orders from "components/pages/Orders";
 import Product from "components/pages/Product";
+import Order from "components/pages/Order";
 //
 import "./styles/global.style.scss";
 
@@ -41,6 +42,11 @@ const App: FC = () => {
                 <Route path="/orders" exact>
                     <RouteGuard>
                         <Orders />
+                    </RouteGuard>
+                </Route>
+                <Route path="/orders/:id" exact>
+                    <RouteGuard>
+                        <Order />
                     </RouteGuard>
                 </Route>
                 <Route path="/products/:id" exact>

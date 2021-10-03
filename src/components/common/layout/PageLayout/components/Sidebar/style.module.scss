@@ -1,5 +1,8 @@
 .Sidebar {
-  flex: 0 0 55px;
+  width: 55px;
   height: 100vh;
   background: #FFFFFF;
+  position: fixed;
+  left: 0;
+  top: 0;
 }

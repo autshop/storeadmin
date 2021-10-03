@@ -14,6 +14,7 @@ type Props = {
 const PageLayout: FC<Props> = ({ children, title = "", backHref }) => (
     <div className={css["PageLayout"]}>
         <Sidebar />
+        <span />
         <MainContent title={title} backHref={backHref}>
             {children}
         </MainContent>
