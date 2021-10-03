@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { map } from "lodash";
 //
 import orderSelectors from "redux/order/selectors";
-import VariantListItem from "components/pages/Order/components/tabs/Variants/components/VariantListItem";
+import VariantListItem from "components/pages/Order/components/tabs/VariantsTab/components/VariantListItem";
 //
 import css from "./style.module.scss";
 
@@ -11,7 +11,7 @@ type Props = {
     orderId: number;
 };
 
-const Variants: FC<Props> = ({ orderId }) => {
+const VariantsTab: FC<Props> = ({ orderId }) => {
     const order = useSelector(orderSelectors.createGetOrderById(orderId));
 
     if (!order) {
@@ -19,8 +19,8 @@ const Variants: FC<Props> = ({ orderId }) => {
     }
 
     return (
-        <div className={css["Variants"]}>
-            <div className={css["Variants__list"]}>
+        <div className={css["VariantsTab"]}>
+            <div className={css["VariantsTab__list"]}>
                 {map([1, 1, 1, 1, 1, 1, 1], id => (
                     <VariantListItem variantId={id} />
                 ))}
@@ -29,4 +29,4 @@ const Variants: FC<Props> = ({ orderId }) => {
     );
 };
 
-export default memo(Variants);
+export default memo(VariantsTab);

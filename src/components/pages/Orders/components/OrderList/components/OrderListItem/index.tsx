@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import orderSelectors from "redux/order/selectors";
 //
 import css from "./style.module.scss";
+import { useHistory } from "react-router-dom";
 
 type Props = {
     orderId: number;
@@ -12,12 +13,16 @@ type Props = {
 const OrderListItem: FC<Props> = ({ orderId }) => {
     const order = useSelector(orderSelectors.createGetOrderById(orderId));
 
+    const history = useHistory();
+
+    const handleClick = () => history.push(`/orders/${orderId}`);
+
     if (!order) {
         return null;
     }
 
     return (
-        <div className={css["OrderListItem"]}>
+        <div className={css["OrderListItem"]} onClick={handleClick}>
             <div className={css["OrderListItem__order-number"]}>
                 <span>{`#${order.id}`}</span>
             </div>

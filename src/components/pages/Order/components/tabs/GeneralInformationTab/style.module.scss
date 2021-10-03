@@ -1,0 +1,19 @@
+.GeneralInformationTab {
+  &__fields {
+    display: grid;
+    grid-template-columns: repeat(2, 232px);
+    grid-column-gap: 52px;
+    grid-row-gap: 22px;
+
+    &__field {
+      width: 232px;
+    }
+  }
+
+  &__buttons {
+    padding: 36px 0 0 284px;
+    width: 232px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

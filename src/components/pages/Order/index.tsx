@@ -5,7 +5,8 @@ import { useParams } from "react-router-dom";
 import PageLayout from "components/common/layout/PageLayout";
 import TabLayout, { Tab } from "components/common/layout/TabLayout";
 import orderSelectors from "redux/order/selectors";
-import Variants from "components/pages/Order/components/tabs/Variants";
+import VariantsTab from "components/pages/Order/components/tabs/VariantsTab";
+import GeneralInformationTab from "./components/tabs/GeneralInformationTab";
 //
 
 const Order: FC = () => {
@@ -20,13 +21,13 @@ const Order: FC = () => {
                 key: "GENERAL_INFORMATION",
                 name: "General Information",
                 children: [],
-                content: null
+                content: <GeneralInformationTab orderId={id} />
             },
             {
                 key: "VARIANTS",
                 name: "Variants",
                 children: [],
-                content: <Variants orderId={id} />
+                content: <VariantsTab orderId={id} />
             }
         ],
         [id]
@@ -37,7 +38,7 @@ const Order: FC = () => {
     }
 
     return (
-        <PageLayout title={`Order - #${order.id}`} backHref="/">
+        <PageLayout title={`Order - #${order.id}`} backHref="/orders">
             <TabLayout tabs={orderTabs} />
         </PageLayout>
     );
