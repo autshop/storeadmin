@@ -14,8 +14,12 @@ export type SubTab = TabBase;
 
 export type Tab = TabBase & { children: SubTab[] };
 
-const getDefaultTabKey = (tabs: Tab[]): string => {
+const getDefaultTabKey = (tabs: Tab[]): string | null => {
     const firstTab = tabs[0];
+
+    if (!firstTab) {
+        return null;
+    }
 
     if (!!firstTab.children.length) {
         return firstTab.children[0].key;
@@ -23,7 +27,7 @@ const getDefaultTabKey = (tabs: Tab[]): string => {
     return firstTab.key;
 };
 
-const findActiveTab = (tabs: Tab[], activeTabKey: string): Tab | SubTab | undefined => {
+const findActiveTab = (tabs: Tab[], activeTabKey: string | null): Tab | SubTab | undefined => {
     let activeTab = undefined;
 
     forEach(tabs, tab => {

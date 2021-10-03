@@ -10,6 +10,8 @@ import Products from "components/pages/Products";
 import Orders from "components/pages/Orders";
 import Product from "components/pages/Product";
 import Order from "components/pages/Order";
+import { ProductActions } from "redux/product/slice";
+import { VariantActions } from "redux/variant/slice";
 //
 import "./styles/global.style.scss";
 
@@ -20,6 +22,9 @@ const App: FC = () => {
 
     useEffect(() => {
         dispatch(AppActions.initializeAppRequest());
+
+        dispatch(ProductActions.loadProductsRequest());
+        dispatch(VariantActions.loadVariantsRequest());
     }, [dispatch]);
 
     if (!isAppInitialized) {

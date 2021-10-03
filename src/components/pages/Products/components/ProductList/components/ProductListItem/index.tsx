@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 //
 import productSelectors from "redux/product/selectors";
+import variantSelectors from "redux/variant/selectors";
 //
 import css from "./style.module.scss";
 
@@ -12,6 +13,7 @@ type Props = {
 
 const ProductListItem: FC<Props> = ({ productId }) => {
     const product = useSelector(productSelectors.createGetProductById(productId));
+    const variants = useSelector(variantSelectors.createGetVariantsByProductId(productId));
 
     const history = useHistory();
 
@@ -27,7 +29,7 @@ const ProductListItem: FC<Props> = ({ productId }) => {
                 <span>{product.name}</span>
             </div>
             <div className={css["ProductListItem__variant-count"]}>
-                <span>0</span>
+                <span>{variants.length}</span>
             </div>
         </div>
     );
