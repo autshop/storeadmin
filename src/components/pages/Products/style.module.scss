@@ -3,6 +3,7 @@
   &__list-header {
     display: flex;
     padding: 24px 0 12px 0;
+    margin-left: 12px;
 
     span {
       font-size: 12px;
@@ -11,7 +12,7 @@
 
     &__name {
       flex: 0 0 152px;
-      margin-left: calc(12px + 66px + 40px);
+      margin-left: calc(66px + 40px);
       margin-right: 172px;
     }
     &__variant-count {

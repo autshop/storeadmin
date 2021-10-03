@@ -10,6 +10,7 @@ import RouteGuard from "components/common/RouteGuard";
 import Products from "components/pages/Products";
 //
 import "./styles/global.style.scss";
+import Orders from "./components/pages/Orders";
 
 const App: FC = () => {
     const isAppInitialized = useSelector(appSelectors.getIsInitialized);
@@ -37,8 +38,10 @@ const App: FC = () => {
                         <Products />
                     </RouteGuard>
                 </Route>
-                <Route path="/" exact>
-                    <RouteGuard>{null}</RouteGuard>
+                <Route path="/orders" exact>
+                    <RouteGuard>
+                        <Orders />
+                    </RouteGuard>
                 </Route>
             </Switch>
         </Router>

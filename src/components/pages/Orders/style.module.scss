@@ -1,0 +1,37 @@
+.Orders {
+
+  &__list-header {
+    display: flex;
+    padding: 24px 0 12px 0;
+    margin-left: 41px;
+
+    span {
+      font-size: 12px;
+      color: #898989;
+    }
+
+    &__order-number {
+      flex: 0 0 152px;
+      margin-right: 22px;
+    }
+
+    &__submitted-at {
+      flex: 0 0 152px;
+      margin-right: 83px;
+    }
+
+    &__variant-count {
+      flex: 0 0 152px;
+      margin-right: 2px;
+    }
+
+    &__customer {
+      flex: 0 0 152px;
+    }
+
+    &__total {
+      flex: 0 0 70px;
+      margin-left: auto;
+    }
+  }
+}
