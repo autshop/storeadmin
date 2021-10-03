@@ -1,3 +1,47 @@
 .TabLayout {
+  margin-top: 42px;
+  padding: 29px;
+  background: #FFFFFF;
+  display: flex;
+  min-height: 650px;
 
+  &__sidebar {
+    flex: 0 0 220px;
+
+    &__item {
+      span {
+        cursor: pointer;
+        font-size: 12px;
+      }
+
+
+      &__title {
+        &-active {
+          font-weight: bold;
+        }
+      }
+
+      &__sub-item {
+        &__title {
+          color: #646464;
+          &-active {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+  &__content {
+    flex: 1 0 auto;
+
+    &__title {
+      margin-bottom: 32px;
+      color: #646464;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    &__container {
+
+    }
+  }
 }

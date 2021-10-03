@@ -1,5 +1,6 @@
-import { FC, memo, ReactNode, useMemo, useState } from "react";
+import { FC, memo, ReactNode, useCallback, useMemo, useState } from "react";
 import { find, map, forEach } from "lodash";
+import classNames from "classnames";
 //
 import css from "./style.module.scss";
 
@@ -50,7 +51,29 @@ const TabLayout: FC<Props> = ({ tabs }) => {
 
     const activeTab = useMemo(() => findActiveTab(tabs, activeTabKey), [activeTabKey, tabs]);
 
-    const createHandleTabClick = (key: string) => () => setActiveTabKey(key);
+    const createHandleTabClick = (key: string) => () => {
+        const tab = find(tabs, ["key", key]);
+
+        if (tab && !tab.content && !!tab.children.length) {
+            const subTab = tab.children[0];
+            setActiveTabKey(subTab.key);
+        } else {
+            setActiveTabKey(key);
+        }
+    };
+
+    const isTabActive = useCallback(
+        (key: string) => {
+            const tab = find(tabs, ["key", key]);
+            if (!tab) return false;
+
+            const subTab = find(tab.children, ["key", activeTabKey]);
+            return tab.key === activeTabKey || subTab?.key === activeTabKey;
+        },
+        [tabs, activeTabKey]
+    );
+
+    const isSubTabActive = useCallback((key: string) => key === activeTabKey, [activeTabKey]);
 
     return (
         <div className={css["TabLayout"]}>
@@ -58,15 +81,21 @@ const TabLayout: FC<Props> = ({ tabs }) => {
                 {map(tabs, tab => (
                     <div className={css["TabLayout__sidebar__item"]}>
                         <span
-                            className={css["TabLayout__sidebar__item__title"]}
+                            className={classNames(css["TabLayout__sidebar__item__title"], {
+                                [css["TabLayout__sidebar__item__title-active"]]: isTabActive(tab.key)
+                            })}
                             onClick={createHandleTabClick(tab.key)}
                         >
                             {tab.name}
                         </span>
                         {map(tab.children, subTab => (
-                            <div className={css["TabLayout__sidebar__item"]}>
+                            <div className={css["TabLayout__sidebar__item__sub-item"]}>
                                 <span
-                                    className={css["TabLayout__sidebar__item__title"]}
+                                    className={classNames(css["TabLayout__sidebar__item__sub-item__title"], {
+                                        [css["TabLayout__sidebar__item__sub-item__title-active"]]: isSubTabActive(
+                                            subTab.key
+                                        )
+                                    })}
                                     onClick={createHandleTabClick(subTab.key)}
                                 >
                                     {subTab.name}
@@ -76,7 +105,12 @@ const TabLayout: FC<Props> = ({ tabs }) => {
                     </div>
                 ))}
             </div>
-            {!!activeTab && <div className={css["TabLayout__content"]}>{activeTab.content}</div>}
+            {!!activeTab && (
+                <div className={css["TabLayout__content"]}>
+                    <div className={css["TabLayout__content__title"]}>{activeTab.name}</div>
+                    <div className={css["TabLayout__content__container"]}>{activeTab.content}</div>
+                </div>
+            )}
         </div>
     );
 };
