@@ -1,6 +1,6 @@
 import React, { FC, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 //
 import { AppActions } from "redux/app/slice";
 import appSelectors from "redux/app/selectors";
@@ -35,11 +35,11 @@ const App: FC = () => {
         <BrowserRouter>
             <Switch>
                 <Route path="/login" exact>
-                    <RouteGuard inverse redirectTo={"/"}>
+                    <RouteGuard inverse redirectTo={"/products"}>
                         {null}
                     </RouteGuard>
                 </Route>
-                <Route path="/" exact>
+                <Route path="/products" exact>
                     <RouteGuard>
                         <Products />
                     </RouteGuard>
@@ -58,6 +58,9 @@ const App: FC = () => {
                     <RouteGuard>
                         <Product />
                     </RouteGuard>
+                </Route>
+                <Route path="/">
+                    <Redirect to="/products" />
                 </Route>
             </Switch>
         </BrowserRouter>
