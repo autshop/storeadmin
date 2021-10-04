@@ -17,7 +17,8 @@ const Sidebar: FC = () => {
     const menus = useMemo(
         (): MenuItem[] => [
             { id: 0, imgSrc: "https://cdn-icons-png.flaticon.com/512/863/863684.png", href: "/products" },
-            { id: 1, imgSrc: "https://cdn-icons-png.flaticon.com/512/743/743131.png", href: "/orders" }
+            { id: 1, imgSrc: "https://cdn-icons-png.flaticon.com/512/743/743131.png", href: "/orders" },
+            { id: 1, imgSrc: "https://cdn-icons-png.flaticon.com/512/1150/1150895.png", href: "/collections" }
         ],
         []
     );

@@ -1,0 +1,26 @@
+.CollectionListItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+  background: #FFFFFF;
+  cursor: pointer;
+  height: 68px;
+  padding-left: 41px;
+
+  span {
+    font-size: 12px;
+  }
+
+  &__collection-number {
+    flex: 0 0 152px;
+    margin-right: 22px;
+
+    font-weight: bold;
+  }
+
+  &__variant-count {
+    flex: 0 0 152px;
+    margin-right: 83px;
+  }
+
+}

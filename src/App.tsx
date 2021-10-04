@@ -13,6 +13,7 @@ import Order from "components/pages/Order";
 import { ProductActions } from "redux/product/slice";
 import { VariantActions } from "redux/variant/slice";
 import { CollectionActions } from "redux/collection/slice";
+import Collections from "components/pages/Collections";
 //
 import "./styles/global.style.scss";
 
@@ -59,6 +60,11 @@ const App: FC = () => {
                 <Route path="/products/:id" exact>
                     <RouteGuard>
                         <Product />
+                    </RouteGuard>
+                </Route>
+                <Route path="/collections" exact>
+                    <RouteGuard>
+                        <Collections />
                     </RouteGuard>
                 </Route>
                 <Route path="/">
