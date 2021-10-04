@@ -12,6 +12,7 @@ import Product from "components/pages/Product";
 import Order from "components/pages/Order";
 import { ProductActions } from "redux/product/slice";
 import { VariantActions } from "redux/variant/slice";
+import { CollectionActions } from "redux/collection/slice";
 //
 import "./styles/global.style.scss";
 
@@ -25,6 +26,7 @@ const App: FC = () => {
 
         dispatch(ProductActions.loadProductsRequest());
         dispatch(VariantActions.loadVariantsRequest());
+        dispatch(CollectionActions.loadCollectionsRequest());
     }, [dispatch]);
 
     if (!isAppInitialized) {
