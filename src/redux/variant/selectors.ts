@@ -11,6 +11,11 @@ const createGetVariantById = (id: number) => (state: StoreState) => find(getVari
 const createGetVariantsByProductId = (id: number) => (state: StoreState) =>
     filter(getVariants(state), ["productId", id]);
 
-const variantSelectors = { getVariants, createGetVariantById, createGetVariantsByProductId };
+const createGetSizeById = (sizeId: number) => (state: StoreState) => {
+    const variant = find(getVariants(state), ({ sizes }) => !!find(sizes, ({ id }) => id === sizeId));
+    return find(variant?.sizes, ({ id }) => sizeId === id);
+};
+
+const variantSelectors = { getVariants, createGetVariantById, createGetVariantsByProductId, createGetSizeById };
 
 export default variantSelectors;
