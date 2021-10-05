@@ -1,0 +1,14 @@
+.VariantAddButton {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    &__item {
+      padding: 8px;
+      display: block;
+      cursor: pointer;
+      &:hover {
+        background: #C4C4C4;
+      }
+    }
+  }
+}

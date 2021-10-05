@@ -1,0 +1,23 @@
+.Collection {
+
+  &__list-header {
+    display: flex;
+    padding: 24px 0 12px 0;
+    margin-left: 41px;
+
+    span {
+      font-size: 12px;
+      color: #898989;
+    }
+
+    &__variant-id {
+      flex: 0 0 152px;
+      margin-right: 22px;
+    }
+
+    &__variant-name {
+      flex: 0 0 152px;
+      margin-right: 83px;
+    }
+  }
+}

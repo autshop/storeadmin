@@ -1,0 +1,26 @@
+.VariantListItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 22px;
+  background: #FFFFFF;
+  cursor: pointer;
+  height: 68px;
+  padding-left: 41px;
+
+  span {
+    font-size: 12px;
+  }
+
+  &__variant-id {
+    flex: 0 0 152px;
+    margin-right: 22px;
+
+    font-weight: bold;
+  }
+
+  &__variant-name {
+    flex: 0 0 152px;
+    margin-right: 83px;
+  }
+
+}
