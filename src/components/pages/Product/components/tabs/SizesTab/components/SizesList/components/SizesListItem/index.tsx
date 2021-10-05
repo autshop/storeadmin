@@ -8,9 +8,10 @@ import css from "./style.module.scss";
 
 type Props = {
     sizeId: number;
+    isEditMode: boolean;
 };
 
-const SizesListItem: FC<Props> = ({ sizeId }) => {
+const SizesListItem: FC<Props> = ({ sizeId, isEditMode }) => {
     const size = useSelector(variantSelectors.createGetSizeById(sizeId));
 
     if (!size) {
@@ -21,17 +22,27 @@ const SizesListItem: FC<Props> = ({ sizeId }) => {
         <div className={css["SizeListItem"]}>
             <div className={css["SizeListItem__item"]}>
                 <div className={css["SizeListItem__item__field"]}>
-                    <TextField value={size.measurement} />
+                    {isEditMode ? (
+                        <TextField value={size.measurement} />
+                    ) : (
+                        <span className={css["SizeListItem__item__printed-value"]}>{size.measurement}</span>
+                    )}
                 </div>
                 <div className={css["SizeListItem__item__field"]}>
-                    <TextField value={size.quantity} />
+                    {isEditMode ? (
+                        <TextField value={size.quantity} />
+                    ) : (
+                        <span className={css["SizeListItem__item__printed-value"]}>{size.quantity}</span>
+                    )}
                 </div>
             </div>
-            <div className={css["SizeListItem__handle"]}>
-                <span />
-                <span />
-                <span />
-            </div>
+            {!isEditMode && (
+                <div className={css["SizeListItem__handle"]}>
+                    <span />
+                    <span />
+                    <span />
+                </div>
+            )}
         </div>
     );
 };
