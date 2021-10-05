@@ -12,7 +12,6 @@ function* updateVariantSizePositionsSaga({
         yield put(VariantActions.updateVariantSizePositionsSuccess());
         yield put(VariantActions.loadVariantsRequest());
     } catch (e) {
-        //TODO ERROR
         yield put(VariantActions.updateVariantSizePositionsFailure({ error: "error" }));
     }
 }

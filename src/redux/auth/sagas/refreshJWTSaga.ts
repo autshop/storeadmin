@@ -24,7 +24,6 @@ function* refreshJWTSaga() {
             LocalStorageService.set(LocalStorageKeys.JWT, token);
             serverApi.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         } catch (e) {
-            //TODO ERROR
             yield put(AuthActions.loginUserFailure({ error: "error" }));
             yield put(AuthActions.logoutUser());
         }

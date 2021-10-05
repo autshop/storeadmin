@@ -16,7 +16,6 @@ function* createProductSaga({
         yield put(ProductActions.loadProductsRequest());
         historyPush("/products");
     } catch (e) {
-        //TODO ERROR
         yield put(ProductActions.createProductFailure({ error: "error" }));
     }
 }

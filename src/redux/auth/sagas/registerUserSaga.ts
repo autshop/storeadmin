@@ -25,7 +25,6 @@ function* registerUserSaga({
         yield put(AuthActions.registerUserSuccess());
         yield put(AuthActions.initializeAuthRequest());
     } catch (e) {
-        //TODO ERROR
         yield put(AuthActions.registerUserFailure({ error: "error" }));
         yield put(AuthActions.logoutUser());
     }

@@ -19,7 +19,6 @@ function* createCollectionSaga({
         yield put(CollectionActions.loadCollectionsRequest());
         historyPush("/collections");
     } catch (e) {
-        //TODO ERROR
         yield put(CollectionActions.loadCollectionsFailure({ error: "error" }));
     }
 }

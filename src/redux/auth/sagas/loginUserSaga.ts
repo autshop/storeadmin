@@ -18,7 +18,6 @@ function* loginUserSaga({ payload: { email, password } }: ReturnType<typeof Auth
         yield put(AuthActions.loginUserSuccess());
         yield put(AuthActions.initializeAuthRequest());
     } catch (e) {
-        //TODO ERROR
         yield put(AuthActions.loginUserFailure({ error: "error" }));
         yield put(AuthActions.logoutUser());
     }

@@ -14,7 +14,6 @@ function* loadProductsSaga() {
 
         yield put(ProductActions.loadProductsSuccess({ products }));
     } catch (e) {
-        //TODO ERROR
         yield put(ProductActions.loadProductsFailure({ error: "error" }));
     }
 }

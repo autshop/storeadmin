@@ -14,7 +14,6 @@ function* loadCollectionsSaga() {
 
         yield put(CollectionActions.loadCollectionsSuccess({ collections }));
     } catch (e) {
-        //TODO ERROR
         yield put(CollectionActions.loadCollectionsFailure({ error: "error" }));
     }
 }

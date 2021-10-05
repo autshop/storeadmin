@@ -13,7 +13,6 @@ function* createVariantSizeSaga({
         yield put(VariantActions.createVariantSizeSuccess());
         yield put(VariantActions.loadVariantsRequest());
     } catch (e) {
-        //TODO ERROR
         yield put(VariantActions.createVariantSizeFailure({ error: "error" }));
     }
 }

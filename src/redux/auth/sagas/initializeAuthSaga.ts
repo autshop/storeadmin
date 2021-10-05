@@ -23,7 +23,6 @@ function* initializeAuthSaga() {
             yield put(AuthActions.initializeAuthSuccess({ user }));
         }
     } catch (e) {
-        //TODO ERROR
         yield put(AuthActions.initializeAuthFailure({ error: "error" }));
         yield put(AuthActions.logoutUser());
     }

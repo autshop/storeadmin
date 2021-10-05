@@ -14,7 +14,6 @@ function* loadVariantsSaga() {
 
         yield put(VariantActions.loadVariantsSuccess({ variants }));
     } catch (e) {
-        //TODO ERROR
         yield put(VariantActions.loadVariantsFailure({ error: "error" }));
     }
 }

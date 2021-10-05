@@ -26,7 +26,6 @@ function* createVariantSaga({
         yield put(VariantActions.loadVariantsRequest());
         historyPush(`/products/${productId}`);
     } catch (e) {
-        //TODO ERROR
         yield put(VariantActions.createVariantFailure({ error: "error" }));
     }
 }
