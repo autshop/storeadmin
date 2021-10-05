@@ -23,8 +23,8 @@ const CollectionListItem: FC<Props> = ({ collectionId }) => {
 
     return (
         <div className={css["CollectionListItem"]} onClick={handleClick}>
-            <div className={css["CollectionListItem__collection-number"]}>
-                <span>{`#${collection.id}`}</span>
+            <div className={css["CollectionListItem__collection-name"]}>
+                <span>{collection.name}</span>
             </div>
             <div className={css["CollectionListItem__variant-count"]}>
                 <span>{collection.variantIds.length}</span>

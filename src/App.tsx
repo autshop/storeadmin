@@ -15,9 +15,10 @@ import { VariantActions } from "redux/variant/slice";
 import { CollectionActions } from "redux/collection/slice";
 import Collections from "components/pages/Collections";
 import Collection from "components/pages/Collection";
+import ProductAdd from "components/pages/ProductAdd";
+import CollectionAdd from "components/pages/CollectionAdd";
 //
 import "./styles/global.style.scss";
-import ProductAdd from "./components/pages/ProductAdd";
 
 const App: FC = () => {
     const isAppInitialized = useSelector(appSelectors.getIsInitialized);
@@ -59,19 +60,14 @@ const App: FC = () => {
                         <Collections />
                     </RouteGuard>
                 </Route>
-                <Route path="/collections/:id" exact>
-                    <RouteGuard>
-                        <Collection />
-                    </RouteGuard>
-                </Route>
                 <Route path="/products/add" exact>
                     <RouteGuard>
                         <ProductAdd />
                     </RouteGuard>
                 </Route>
-                <Route path="/variants/add" exact>
+                <Route path="/collections/add" exact>
                     <RouteGuard>
-                        <ProductAdd />
+                        <CollectionAdd />
                     </RouteGuard>
                 </Route>
                 <Route path="/products" exact>
@@ -82,6 +78,11 @@ const App: FC = () => {
                 <Route path="/products/:id" exact>
                     <RouteGuard>
                         <Product />
+                    </RouteGuard>
+                </Route>
+                <Route path="/collections/:id" exact>
+                    <RouteGuard>
+                        <Collection />
                     </RouteGuard>
                 </Route>
                 <Route path="/">

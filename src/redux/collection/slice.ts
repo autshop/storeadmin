@@ -29,6 +29,22 @@ const CollectionSlice = createSlice({
         addVariantFailure: (state, action: PayloadAction<{ error: string }>) => {
             state.isLoading = false;
             //state.error = action.payload.error;
+        },
+        createCollectionRequest: (
+            state,
+            action: PayloadAction<{
+                data: { name: string; description: string };
+                historyPush: Function;
+            }>
+        ) => {
+            state.isLoading = true;
+        },
+        createCollectionSuccess: state => {
+            state.isLoading = false;
+        },
+        createCollectionFailure: (state, action: PayloadAction<{ error: string }>) => {
+            state.isLoading = false;
+            //state.error = action.payload.error;
         }
     }
 });
