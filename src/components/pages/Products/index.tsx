@@ -1,5 +1,7 @@
 import { FC, memo, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { Button } from "@material-ui/core";
 //
 import ProductList from "components/pages/Products/components/ProductList";
 import PageLayout from "components/common/layout/PageLayout";
@@ -11,10 +13,14 @@ import css from "./style.module.scss";
 const Products: FC = () => {
     const dispatch = useDispatch();
 
+    const history = useHistory();
+
     useEffect(() => {
         dispatch(ProductActions.loadProductsRequest());
         dispatch(VariantActions.loadVariantsRequest());
     }, [dispatch]);
+
+    const handleNewVariantClick = () => history.push("/products/add");
 
     return (
         <PageLayout title="Products">
@@ -30,6 +36,10 @@ const Products: FC = () => {
                 <div className={css["Products__list-wrapper"]}>
                     <ProductList />
                 </div>
+
+                <Button variant="contained" color="primary" onClick={handleNewVariantClick}>
+                    Add product
+                </Button>
             </div>
         </PageLayout>
     );

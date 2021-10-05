@@ -20,12 +20,10 @@ const CollectionSlice = createSlice({
             state.isLoading = false;
             //state.error = action.payload.error;
         },
-        addVariantRequest: (state, action: PayloadAction<{ variantId: number }>) => {
+        addVariantRequest: (state, action: PayloadAction<{ collectionId: number; variantId: number }>) => {
             state.isLoading = true;
         },
-        addVariantSuccess: (state, action: PayloadAction<{ collection: Collection }>) => {
-            //TODO
-            //state.collections = action.payload.collections;
+        addVariantSuccess: state => {
             state.isLoading = false;
         },
         addVariantFailure: (state, action: PayloadAction<{ error: string }>) => {

@@ -1,18 +1,20 @@
 import { put, call } from "redux-saga/effects";
 //
 import serverApi from "lib/api";
-import ApiResponse from "lib/api/type";
-import { parseStandardResponse } from "lib/api/util";
-import { Collection } from "redux/collection/types";
 import { CollectionActions } from "redux/collection/slice";
+import { VariantActions } from "redux/variant/slice";
 
-function* addVariantSaga({ payload: { variantId } }: ReturnType<typeof CollectionActions.addVariantRequest>) {
+function* addVariantSaga({
+    payload: { collectionId, variantId }
+}: ReturnType<typeof CollectionActions.addVariantRequest>) {
     try {
-        type ResponseType = { collection: Collection };
-        const response: ApiResponse<ResponseType> = yield call(serverApi.put, "/collection", { variantId });
-        const collection: Collection = parseStandardResponse<ResponseType>(response);
+        yield call(serverApi.put, `/collection/${collectionId}`, {
+            variantIds: [variantId]
+        });
 
-        yield put(CollectionActions.addVariantSuccess({ collection }));
+        yield put(CollectionActions.loadCollectionsRequest());
+        yield put(VariantActions.loadVariantsRequest());
+        yield put(CollectionActions.addVariantSuccess());
     } catch (e) {
         //TODO ERROR
         yield put(CollectionActions.addVariantFailure({ error: "error" }));

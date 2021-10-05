@@ -33,11 +33,15 @@ const VariantAddButton: FC<Props> = ({ collectionId }) => {
     };
 
     const handleListItemClick = (variantId: number) => () => {
-        dispatch(CollectionActions.addVariantRequest({ variantId }));
+        dispatch(CollectionActions.addVariantRequest({ collectionId, variantId }));
     };
 
     const open = Boolean(anchorEl);
     const id = open ? "simple-popover" : undefined;
+
+    if (!filteredVariants.length) {
+        return null;
+    }
 
     return (
         <div className={css["VariantAddButton"]}>
