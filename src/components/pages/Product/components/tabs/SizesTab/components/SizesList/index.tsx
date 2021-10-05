@@ -1,4 +1,4 @@
-import { FC, memo, ReactNode, useMemo, useState } from "react";
+import { FC, memo, ReactNode, useEffect, useMemo, useState } from "react";
 import { map, get } from "lodash";
 import { ReactSortable } from "react-sortablejs";
 import { useSelector } from "react-redux";
@@ -22,33 +22,30 @@ const SizesList: FC<Props> = ({ variantId, isEditMode }) => {
 
     const sizes = get(variant, "sizes", []);
 
-    const defaultSizeList: SizeListItem[] = useMemo(
+    const [draftSizeList, setDraftSizeList] = useState<SizeListItem[]>([]);
+
+    useEffect(
         () =>
-            map(sizes, ({ id, measurement, quantity }) => ({
-                id,
-                measurement,
-                quantity
-            })),
-        [variant?.sizes, variantId]
+            setDraftSizeList(
+                map(sizes, ({ id, measurement, quantity }) => ({
+                    id,
+                    measurement,
+                    quantity
+                }))
+            ),
+        [variantId, sizes]
     );
 
-    const [draftSizeList, setDraftSizeList] = useState(defaultSizeList);
+    const sizesList = map(draftSizeList || [], ({ id }) => <SizesListItem sizeId={id} isEditMode={isEditMode} />);
 
-    const createSortableWrapper = (children: ReactNode) =>
-        isEditMode ? (
-            <>{children}</>
-        ) : (
-            <ReactSortable list={draftSizeList} setList={setDraftSizeList}>
-                {children}
-            </ReactSortable>
-        );
+    if (isEditMode) {
+        return <>{sizesList}</>;
+    }
 
-    return createSortableWrapper(
-        <>
-            {map(draftSizeList || [], ({ id }) => (
-                <SizesListItem sizeId={id} isEditMode={isEditMode} />
-            ))}
-        </>
+    return (
+        <ReactSortable list={draftSizeList} setList={setDraftSizeList}>
+            {sizesList}
+        </ReactSortable>
     );
 };
 
