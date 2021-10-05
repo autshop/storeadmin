@@ -20,7 +20,7 @@ const ProductSlice = createSlice({
             state.isLoading = false;
             //state.error = action.payload.error;
         },
-        createProductRequest: state => {
+        createProductRequest: (state, action: PayloadAction<{ data: { name: string }; historyPush: Function }>) => {
             state.isLoading = true;
         },
         createProductSuccess: (state, action: PayloadAction<{ products: Product[] }>) => {

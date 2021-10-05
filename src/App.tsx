@@ -17,6 +17,7 @@ import Collections from "components/pages/Collections";
 import Collection from "components/pages/Collection";
 //
 import "./styles/global.style.scss";
+import ProductAdd from "./components/pages/ProductAdd";
 
 const App: FC = () => {
     const isAppInitialized = useSelector(appSelectors.getIsInitialized);
@@ -43,11 +44,6 @@ const App: FC = () => {
                         {null}
                     </RouteGuard>
                 </Route>
-                <Route path="/products" exact>
-                    <RouteGuard>
-                        <Products />
-                    </RouteGuard>
-                </Route>
                 <Route path="/orders" exact>
                     <RouteGuard>
                         <Orders />
@@ -58,11 +54,6 @@ const App: FC = () => {
                         <Order />
                     </RouteGuard>
                 </Route>
-                <Route path="/products/:id" exact>
-                    <RouteGuard>
-                        <Product />
-                    </RouteGuard>
-                </Route>
                 <Route path="/collections" exact>
                     <RouteGuard>
                         <Collections />
@@ -71,6 +62,26 @@ const App: FC = () => {
                 <Route path="/collections/:id" exact>
                     <RouteGuard>
                         <Collection />
+                    </RouteGuard>
+                </Route>
+                <Route path="/products/add" exact>
+                    <RouteGuard>
+                        <ProductAdd />
+                    </RouteGuard>
+                </Route>
+                <Route path="/variants/add" exact>
+                    <RouteGuard>
+                        <ProductAdd />
+                    </RouteGuard>
+                </Route>
+                <Route path="/products" exact>
+                    <RouteGuard>
+                        <Products />
+                    </RouteGuard>
+                </Route>
+                <Route path="/products/:id" exact>
+                    <RouteGuard>
+                        <Product />
                     </RouteGuard>
                 </Route>
                 <Route path="/">
