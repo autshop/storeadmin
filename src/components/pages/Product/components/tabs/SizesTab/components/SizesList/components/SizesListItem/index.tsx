@@ -1,5 +1,6 @@
 import { FC, memo } from "react";
 import { useSelector } from "react-redux";
+import { get, isFinite, isFunction } from "lodash";
 import { TextField } from "@material-ui/core";
 //
 import variantSelectors from "redux/variant/selectors";
@@ -9,10 +10,16 @@ import css from "./style.module.scss";
 type Props = {
     sizeId: number;
     isEditMode: boolean;
+    index: number;
 };
 
-const SizesListItem: FC<Props> = ({ sizeId, isEditMode }) => {
+const SizesListItem: FC<Props> = ({ sizeId, isEditMode, index }) => {
     const size = useSelector(variantSelectors.createGetSizeById(sizeId));
+
+    //const measurement = useWatch({ control, name: `items[${index}].measurement` });
+    //const quantity = useWatch({ control, name: `items[${index}].quantity` });
+
+    //console.log(field);
 
     if (!size) {
         return null;
@@ -23,14 +30,33 @@ const SizesListItem: FC<Props> = ({ sizeId, isEditMode }) => {
             <div className={css["SizeListItem__item"]}>
                 <div className={css["SizeListItem__item__field"]}>
                     {isEditMode ? (
-                        <TextField value={size.measurement} />
+                        <TextField
+                        /*value={field?.measurement}
+                            onChange={e => {
+                                const value = get(e, "target.value", "");
+                                console.log(value);
+                                console.log(setValue);
+                                if (isFunction(setValue)) {
+                                    console.log("a");
+                                    setValue(`items[${index}].measurement`, value);
+                                }
+                            }}*/
+                        />
                     ) : (
                         <span className={css["SizeListItem__item__printed-value"]}>{size.measurement}</span>
                     )}
                 </div>
                 <div className={css["SizeListItem__item__field"]}>
                     {isEditMode ? (
-                        <TextField value={size.quantity} />
+                        <TextField
+                        /*value={field?.quantity}
+                            onChange={e => {
+                                const value = get(e, "target.value", "");
+                                if (isFunction(setValue)) {
+                                    setValue(`items[${index}].quantity`, value);
+                                }
+                            }}*/
+                        />
                     ) : (
                         <span className={css["SizeListItem__item__printed-value"]}>{size.quantity}</span>
                     )}

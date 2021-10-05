@@ -37,6 +37,26 @@ const VariantSlice = createSlice({
         createVariantFailure: (state, action: PayloadAction<{ error: string }>) => {
             state.isLoading = false;
             //state.error = action.payload.error;
+        },
+        createVariantSizeRequest: (state, action: PayloadAction<{ variantId: number }>) => {
+            state.isLoading = true;
+        },
+        createVariantSizeSuccess: state => {
+            state.isLoading = false;
+        },
+        createVariantSizeFailure: (state, action: PayloadAction<{ error: string }>) => {
+            state.isLoading = false;
+            //state.error = action.payload.error;
+        },
+        updateVariantSizePositionsRequest: (state, action: PayloadAction<{ sizeIds: number[]; variantId: number }>) => {
+            state.isLoading = true;
+        },
+        updateVariantSizePositionsSuccess: state => {
+            state.isLoading = false;
+        },
+        updateVariantSizePositionsFailure: (state, action: PayloadAction<{ error: string }>) => {
+            state.isLoading = false;
+            //state.error = action.payload.error;
         }
     }
 });

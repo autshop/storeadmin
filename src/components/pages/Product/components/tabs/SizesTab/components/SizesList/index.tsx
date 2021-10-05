@@ -1,49 +1,60 @@
-import { FC, memo, ReactNode, useEffect, useMemo, useState } from "react";
+import { FC, memo, useEffect, useState } from "react";
 import { map, get } from "lodash";
 import { ReactSortable } from "react-sortablejs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 //
 import SizesListItem from "components/pages/Product/components/tabs/SizesTab/components/SizesList/components/SizesListItem";
 import variantSelectors from "redux/variant/selectors";
+import { VariantActions } from "../../../../../../../../redux/variant/slice";
+import { SizeListItem } from "../../index";
 
 type Props = {
     variantId: number;
     isEditMode: boolean;
+    items: SizeListItem[];
+    setItems: (items: SizeListItem[]) => void;
 };
 
-type SizeListItem = {
-    id: number;
-    measurement: string;
-    quantity: number;
-};
-
-const SizesList: FC<Props> = ({ variantId, isEditMode }) => {
+const SizesList: FC<Props> = ({ variantId, isEditMode, items, setItems }) => {
     const variant = useSelector(variantSelectors.createGetVariantById(variantId));
 
     const sizes = get(variant, "sizes", []);
+    const sizeIds = map(sizes, "id");
 
-    const [draftSizeList, setDraftSizeList] = useState<SizeListItem[]>([]);
+    /*const methods = useForm({
+        defaultValues: { items },
+        context: items
+    });
+    const { control, setValue } = methods;
+    const { fields } = useFieldArray({ control, name: "items" });
+*/
+
+    /*useEffect(() => {
+        setValue("items", items);
+    }, [items]);
+
+    console.log(fields);*/
 
     useEffect(
         () =>
-            setDraftSizeList(
-                map(sizes, ({ id, measurement, quantity }) => ({
-                    id,
-                    measurement,
-                    quantity
+            setItems(
+                map(sizeIds, id => ({
+                    id
                 }))
             ),
-        [variantId, sizes]
+        [variantId]
     );
 
-    const sizesList = map(draftSizeList || [], ({ id }) => <SizesListItem sizeId={id} isEditMode={isEditMode} />);
+    const sizesList = map(items || [], ({ id }, index) => (
+        <SizesListItem key={id} sizeId={id} isEditMode={isEditMode} index={index} />
+    ));
 
     if (isEditMode) {
         return <>{sizesList}</>;
     }
 
     return (
-        <ReactSortable list={draftSizeList} setList={setDraftSizeList}>
+        <ReactSortable list={items} setList={setItems}>
             {sizesList}
         </ReactSortable>
     );
