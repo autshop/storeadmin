@@ -8,6 +8,7 @@ import PageLayout from "components/common/layout/PageLayout";
 import TabLayout, { Tab } from "components/common/layout/TabLayout";
 import variantSelectors from "redux/variant/selectors";
 import SizesTab from "./components/tabs/SizesTab";
+import VariantAddTab from "./components/tabs/VariantAddTab";
 //
 
 const Product: FC = () => {
@@ -18,8 +19,8 @@ const Product: FC = () => {
     const variants = useSelector(variantSelectors.createGetVariantsByProductId(id));
 
     const productTabs: Tab[] = useMemo(
-        () =>
-            map(variants, variant => ({
+        () => [
+            ...map(variants, variant => ({
                 key: `${variant.id}`,
                 name: variant.name,
                 children: [
@@ -28,6 +29,8 @@ const Product: FC = () => {
                 ],
                 content: null
             })),
+            { key: "ADD_VARIANT", name: "Add Variant", children: [], content: <VariantAddTab productId={id} /> }
+        ],
         [variants, id]
     );
 

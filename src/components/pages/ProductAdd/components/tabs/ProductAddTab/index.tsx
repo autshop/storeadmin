@@ -12,12 +12,12 @@ const ProductAddTab: FC = () => {
     const { register, handleSubmit } = useForm<NewProductFormTypes>();
     const { push: historyPush } = useHistory();
 
-    const handleLoginSubmit = (formData: NewProductFormTypes) =>
+    const handleFormSubmit = (formData: NewProductFormTypes) =>
         dispatch(ProductActions.createProductRequest({ data: formData, historyPush }));
 
     return (
         <div>
-            <form onSubmit={handleSubmit(handleLoginSubmit)}>
+            <form onSubmit={handleSubmit(handleFormSubmit)}>
                 <TextField id="name" name="name" label="Name" inputRef={register} required={true} />
                 <div style={{ paddingTop: "16px" }}>
                     <Button type="submit" variant="contained" color="primary">

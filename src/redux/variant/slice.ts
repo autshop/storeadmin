@@ -3,6 +3,7 @@ import { noop } from "lodash";
 //
 import { initialState } from "redux/variant/state";
 import { Variant } from "redux/variant/types";
+import { Product } from "../product/types";
 
 const VariantSlice = createSlice({
     name: "Variant",
@@ -17,6 +18,23 @@ const VariantSlice = createSlice({
             state.isLoading = false;
         },
         loadVariantsFailure: (state, action: PayloadAction<{ error: string }>) => {
+            state.isLoading = false;
+            //state.error = action.payload.error;
+        },
+        createVariantRequest: (
+            state,
+            action: PayloadAction<{
+                data: { name: string; description: string };
+                historyPush: Function;
+                productId: number;
+            }>
+        ) => {
+            state.isLoading = true;
+        },
+        createVariantSuccess: state => {
+            state.isLoading = false;
+        },
+        createVariantFailure: (state, action: PayloadAction<{ error: string }>) => {
             state.isLoading = false;
             //state.error = action.payload.error;
         }

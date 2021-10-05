@@ -23,30 +23,10 @@ const ProductSlice = createSlice({
         createProductRequest: (state, action: PayloadAction<{ data: { name: string }; historyPush: Function }>) => {
             state.isLoading = true;
         },
-        createProductSuccess: (state, action: PayloadAction<{ products: Product[] }>) => {
+        createProductSuccess: state => {
             state.isLoading = false;
         },
         createProductFailure: (state, action: PayloadAction<{ error: string }>) => {
-            state.isLoading = false;
-            //state.error = action.payload.error;
-        },
-        deleteProductRequest: state => {
-            state.isLoading = true;
-        },
-        deleteProductSuccess: (state, action: PayloadAction<{ products: any[] }>) => {
-            state.isLoading = false;
-        },
-        deleteProductFailure: (state, action: PayloadAction<{ error: string }>) => {
-            state.isLoading = false;
-            //state.error = action.payload.error;
-        },
-        updateProductRequest: state => {
-            state.isLoading = true;
-        },
-        updateProductSuccess: (state, action: PayloadAction<{ products: any[] }>) => {
-            state.isLoading = false;
-        },
-        updateProductFailure: (state, action: PayloadAction<{ error: string }>) => {
             state.isLoading = false;
             //state.error = action.payload.error;
         }
