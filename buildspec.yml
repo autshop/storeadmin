@@ -1,0 +1,14 @@
+version: 0.2
+
+env:
+  shell: bash
+
+phases:
+  build:
+    commands:
+      - npm ci
+      - npm run build
+
+  post_build:
+    commands:
+      - aws s3 mb s3://tenant-$TENANT_ID
