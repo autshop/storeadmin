@@ -12,4 +12,4 @@ phases:
   post_build:
     commands:
       - aws s3 mb s3://autshop-tenant-$TENANT_ID
-      - aws s3 sync ./build s3://autshop-tenant-$TENANT_ID/
+      - aws s3 sync ./build s3://autshop/tenant-$TENANT_ID
