@@ -3,7 +3,7 @@
   align-items: center;
 
   &__item {
-    flex: 0 0 230px;
+    flex: 0 0 80px;
     border: 1px solid black;
     display: flex;
     justify-content: center;
@@ -12,8 +12,6 @@
     padding: 8px 0;
 
     &__field {
-      width: 93px;
-      border: 1px solid black;
       display: flex;
       justify-content: flex-start;
       align-items: center;

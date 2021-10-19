@@ -35,9 +35,9 @@ const Sidebar: FC = () => {
     return (
         <div className={css["Sidebar"]}>
             <div className={css["Sidebar__menu"]}>
-                {map(menus, ({ id, imgSrc, href }) => (
+                {map(menus, ({ id, imgSrc, href }, index) => (
                     <div
-                        key={id}
+                        key={index}
                         className={classNames(css["Sidebar__menu__item"], {
                             [css["Sidebar__menu__item-active"]]: isRouteActive(href)
                         })}

@@ -82,8 +82,8 @@ const TabLayout: FC<Props> = ({ tabs }) => {
     return (
         <div className={css["TabLayout"]}>
             <div className={css["TabLayout__sidebar"]}>
-                {map(tabs, tab => (
-                    <div className={css["TabLayout__sidebar__item"]}>
+                {map(tabs, (tab, index) => (
+                    <div key={index} className={css["TabLayout__sidebar__item"]}>
                         <span
                             className={classNames(css["TabLayout__sidebar__item__title"], {
                                 [css["TabLayout__sidebar__item__title-active"]]: isTabActive(tab.key)
@@ -92,8 +92,8 @@ const TabLayout: FC<Props> = ({ tabs }) => {
                         >
                             {tab.name}
                         </span>
-                        {map(tab.children, subTab => (
-                            <div className={css["TabLayout__sidebar__item__sub-item"]}>
+                        {map(tab.children, (subTab, subTabIndex) => (
+                            <div key={subTabIndex} className={css["TabLayout__sidebar__item__sub-item"]}>
                                 <span
                                     className={classNames(css["TabLayout__sidebar__item__sub-item__title"], {
                                         [css["TabLayout__sidebar__item__sub-item__title-active"]]: isSubTabActive(

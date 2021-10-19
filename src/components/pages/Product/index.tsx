@@ -7,7 +7,7 @@ import productSelectors from "redux/product/selectors";
 import PageLayout from "components/common/layout/PageLayout";
 import TabLayout, { Tab } from "components/common/layout/TabLayout";
 import variantSelectors from "redux/variant/selectors";
-import SizesTab from "components/pages/Product/components/tabs/SizesTab";
+import SizesPositionTab from "components/pages/Product/components/tabs/SizesPositionTab";
 import VariantAddTab from "components/pages/Product/components/tabs/VariantAddTab";
 import GeneralInformationTab from "components/pages/Product/components/tabs/GeneralInformationTab";
 //
@@ -30,7 +30,11 @@ const Product: FC = () => {
                         name: "General Information",
                         content: <GeneralInformationTab variantId={variant.id} />
                     },
-                    { key: `${variant.id}/SIZES`, name: "Sizes", content: <SizesTab variantId={variant.id} /> }
+                    {
+                        key: `${variant.id}/SIZES`,
+                        name: "Size positions",
+                        content: <SizesPositionTab variantId={variant.id} />
+                    }
                 ],
                 content: null
             })),
