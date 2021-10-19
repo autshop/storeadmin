@@ -28,9 +28,6 @@ const SizesPositionTab: FC<Props> = ({ variantId }) => {
     const sortedSizes = sortBy(sizes, "position");
     const sizeIds = map(sortedSizes, "id");
 
-    console.log(items);
-    console.log(sizes);
-
     useEffect(
         () =>
             setItems(

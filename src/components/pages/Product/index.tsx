@@ -10,6 +10,7 @@ import variantSelectors from "redux/variant/selectors";
 import SizesPositionTab from "components/pages/Product/components/tabs/SizesPositionTab";
 import VariantAddTab from "components/pages/Product/components/tabs/VariantAddTab";
 import GeneralInformationTab from "components/pages/Product/components/tabs/GeneralInformationTab";
+import SizesEditTab from "components/pages/Product/components/tabs/SizesEditTab";
 //
 
 const Product: FC = () => {
@@ -31,9 +32,14 @@ const Product: FC = () => {
                         content: <GeneralInformationTab variantId={variant.id} />
                     },
                     {
-                        key: `${variant.id}/SIZES`,
+                        key: `${variant.id}/SIZES_POSITION`,
                         name: "Size positions",
                         content: <SizesPositionTab variantId={variant.id} />
+                    },
+                    {
+                        key: `${variant.id}/SIZES_EDIT`,
+                        name: "Size edit",
+                        content: <SizesEditTab variantId={variant.id} />
                     }
                 ],
                 content: null

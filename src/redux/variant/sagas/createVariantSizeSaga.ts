@@ -7,7 +7,7 @@ function* createVariantSizeSaga({
     payload: { variantId }
 }: ReturnType<typeof VariantActions.createVariantSizeRequest>) {
     try {
-        yield call(serverApi.post, `/variant/${variantId}/sizes`, [{ measurement: "", quantity: 0 }]);
+        yield call(serverApi.post, `/variant/${variantId}/sizes`, [{ measurement: "New size name here", quantity: 0 }]);
 
         yield put(VariantActions.createVariantSizeSuccess());
         yield put(VariantActions.loadVariantsRequest());

@@ -6,6 +6,8 @@ const getState = (state: StoreState) => state.variant;
 
 const getVariants = (state: StoreState) => getState(state).variants;
 
+const getIsLoading = (state: StoreState) => getState(state).isLoading;
+
 const createGetVariantById = (id: number) => (state: StoreState) => find(getVariants(state), ["id", id]);
 
 const createGetVariantsByProductId = (id: number) => (state: StoreState) =>
@@ -16,6 +18,12 @@ const createGetSizeById = (sizeId: number) => (state: StoreState) => {
     return find(variant?.sizes, ({ id }) => sizeId === id);
 };
 
-const variantSelectors = { getVariants, createGetVariantById, createGetVariantsByProductId, createGetSizeById };
+const variantSelectors = {
+    getVariants,
+    createGetVariantById,
+    createGetVariantsByProductId,
+    createGetSizeById,
+    getIsLoading
+};
 
 export default variantSelectors;
