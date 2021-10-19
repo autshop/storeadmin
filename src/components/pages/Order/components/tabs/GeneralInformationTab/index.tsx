@@ -29,19 +29,19 @@ const GeneralInformationTab: FC<Props> = ({ orderId }) => {
                 <TextField
                     className={css["GeneralInformationTab__fields__field"]}
                     disabled
-                    value={order.submittedAt}
+                    value={order.createdAt}
                     label={"Submitted At"}
                 />
                 <TextField
                     className={css["GeneralInformationTab__fields__field"]}
                     disabled
-                    value={order.customerName}
+                    value={order.customerEmail}
                     label={"Customer"}
                 />
                 <TextField
                     className={css["GeneralInformationTab__fields__field"]}
                     disabled
-                    value={order.total}
+                    value={444}
                     label={"Total"}
                 />
             </div>

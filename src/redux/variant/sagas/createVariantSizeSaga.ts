@@ -1,8 +1,7 @@
 import { put, call } from "redux-saga/effects";
 //
 import serverApi from "lib/api";
-import { ProductActions } from "redux/product/slice";
-import { VariantActions } from "../slice";
+import { VariantActions } from "redux/variant/slice";
 
 function* createVariantSizeSaga({
     payload: { variantId }

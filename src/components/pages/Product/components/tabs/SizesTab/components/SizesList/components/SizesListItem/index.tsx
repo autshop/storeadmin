@@ -1,6 +1,5 @@
 import { FC, memo } from "react";
 import { useSelector } from "react-redux";
-import { get, isFinite, isFunction } from "lodash";
 import { TextField } from "@material-ui/core";
 //
 import variantSelectors from "redux/variant/selectors";

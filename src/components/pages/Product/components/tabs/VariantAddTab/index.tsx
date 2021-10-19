@@ -4,9 +4,8 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 //
-import { NewProductFormTypes, NewVariantFormTypes } from "utils/forms/types";
-import { ProductActions } from "redux/product/slice";
-import { VariantActions } from "../../../../../../redux/variant/slice";
+import { NewVariantFormTypes } from "utils/forms/types";
+import { VariantActions } from "redux/variant/slice";
 
 type Props = {
     productId: number;

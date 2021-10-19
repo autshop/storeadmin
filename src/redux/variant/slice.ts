@@ -3,7 +3,6 @@ import { noop } from "lodash";
 //
 import { initialState } from "redux/variant/state";
 import { Variant } from "redux/variant/types";
-import { Product } from "../product/types";
 
 const VariantSlice = createSlice({
     name: "Variant",

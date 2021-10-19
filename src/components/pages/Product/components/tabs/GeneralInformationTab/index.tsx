@@ -1,13 +1,8 @@
 import { FC, memo } from "react";
-import { Button, TextField } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import { TextField } from "@material-ui/core";
+import { useSelector } from "react-redux";
 //
-import { NewProductFormTypes, NewVariantFormTypes } from "utils/forms/types";
-import { ProductActions } from "redux/product/slice";
-import { VariantActions } from "../../../../../../redux/variant/slice";
-import variantSelectors from "../../../../../../redux/variant/selectors";
+import variantSelectors from "redux/variant/selectors";
 
 type Props = {
     variantId: number;

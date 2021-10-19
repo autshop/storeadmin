@@ -27,16 +27,16 @@ const OrderListItem: FC<Props> = ({ orderId }) => {
                 <span>{`#${order.id}`}</span>
             </div>
             <div className={css["OrderListItem__submitted-at"]}>
-                <span>{order.submittedAt}</span>
+                <span>{order.createdAt}</span>
             </div>
             <div className={css["OrderListItem__variant-count"]}>
-                <span>{order.variantIds.length}</span>
+                <span>{order.orderSizes.length}</span>
             </div>
             <div className={css["OrderListItem__customer-name"]}>
-                <span>{order.customerName}</span>
+                <span>{order.customerEmail}</span>
             </div>
             <div className={css["OrderListItem__total"]}>
-                <span>{`${order.total} EUR`}</span>
+                <span>{`444 EUR`}</span>
             </div>
         </div>
     );

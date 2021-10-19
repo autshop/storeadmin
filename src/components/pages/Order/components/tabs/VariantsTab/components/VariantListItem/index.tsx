@@ -1,7 +1,5 @@
 import { FC, memo } from "react";
-import { useSelector } from "react-redux";
 //
-import orderSelectors from "redux/order/selectors";
 //
 import css from "./style.module.scss";
 

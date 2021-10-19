@@ -1,11 +1,10 @@
-import { FC, memo, useEffect, useState } from "react";
+import { FC, memo, useEffect } from "react";
 import { map, get } from "lodash";
 import { ReactSortable } from "react-sortablejs";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 //
 import SizesListItem from "components/pages/Product/components/tabs/SizesTab/components/SizesList/components/SizesListItem";
 import variantSelectors from "redux/variant/selectors";
-import { VariantActions } from "../../../../../../../../redux/variant/slice";
 import { SizeListItem } from "../../index";
 
 type Props = {
