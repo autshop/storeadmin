@@ -2,7 +2,7 @@ import { createSlice, CaseReducer, PayloadAction } from "@reduxjs/toolkit";
 import { noop } from "lodash";
 //
 import { initialState } from "redux/variant/state";
-import { Variant } from "redux/variant/types";
+import { Variant, VariantSize } from "redux/variant/types";
 
 const VariantSlice = createSlice({
     name: "Variant",
@@ -54,6 +54,16 @@ const VariantSlice = createSlice({
             state.isLoading = false;
         },
         updateVariantSizePositionsFailure: (state, action: PayloadAction<{ error: string }>) => {
+            state.isLoading = false;
+            //state.error = action.payload.error;
+        },
+        updateVariantSizesRequest: (state, action: PayloadAction<{ sizes: VariantSize[]; variantId: number }>) => {
+            state.isLoading = true;
+        },
+        updateVariantSizesSuccess: state => {
+            state.isLoading = false;
+        },
+        updateVariantSizesFailure: (state, action: PayloadAction<{ error: string }>) => {
             state.isLoading = false;
             //state.error = action.payload.error;
         }

@@ -10,11 +10,23 @@ type Props = {
 };
 
 const SizesListItem: FC<Props> = ({ index }) => {
-    const { control } = useFormContext();
+    const { control, register } = useFormContext();
     const { fields } = useFieldArray({ control, name: "items" });
 
     return (
         <div className={css["SizeListItem"]}>
+            <input
+                type="hidden"
+                name={`items[${index}].id`}
+                defaultValue={get(fields, `[${index}].id`)}
+                ref={register()}
+            />
+            <input
+                type="hidden"
+                name={`items[${index}].position`}
+                defaultValue={get(fields, `[${index}].position`)}
+                ref={register()}
+            />
             <div className={css["SizeListItem__field"]}>
                 <Controller
                     name={`items[${index}].measurement`}
