@@ -76,6 +76,16 @@ const VariantSlice = createSlice({
         uploadVariantImageFailure: (state, action: PayloadAction<{ error: string }>) => {
             state.isLoading = false;
             //state.error = action.payload.error;
+        },
+        updateVariantAvailabilityRequest: (state, action: PayloadAction<{ enabled: boolean; variantId: number }>) => {
+            state.isLoading = true;
+        },
+        updateVariantAvailabilitySuccess: state => {
+            state.isLoading = false;
+        },
+        updateVariantAvailabilityFailure: (state, action: PayloadAction<{ error: string }>) => {
+            state.isLoading = false;
+            //state.error = action.payload.error;
         }
     }
 });

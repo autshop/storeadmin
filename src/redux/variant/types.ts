@@ -18,4 +18,6 @@ export type Variant = {
     productId: number;
     sizes: VariantSize[];
     images: VariantImages[];
+    enabled: boolean;
+    price: number;
 };
