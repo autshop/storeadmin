@@ -5,13 +5,17 @@ export type VariantSize = {
     position: number;
 };
 
+export type VariantImages = {
+    id: number;
+    src: string;
+};
+
 export type Variant = {
     id: number;
     name: string;
     description: string;
     sku: number;
     productId: number;
-    status: string; //TODO
-    imageSrc: string; //TODO
-    sizes: VariantSize[]; //TODO
+    sizes: VariantSize[];
+    images: VariantImages[];
 };
