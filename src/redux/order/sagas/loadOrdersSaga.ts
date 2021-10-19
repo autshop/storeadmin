@@ -9,7 +9,7 @@ import { OrderActions } from "redux/order/slice";
 function* loadOrdersSaga() {
     try {
         type ResponseType = { orders: Order[] };
-        const response: ApiResponse<ResponseType> = yield call(serverApi.get, "/orders");
+        const response: ApiResponse<ResponseType> = yield call(serverApi.get, "/order");
         const orders: Order[] = parseStandardResponse<ResponseType>(response);
 
         yield put(OrderActions.loadOrdersSuccess({ orders }));

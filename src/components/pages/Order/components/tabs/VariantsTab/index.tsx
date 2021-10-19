@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { map } from "lodash";
 //
 import orderSelectors from "redux/order/selectors";
-import VariantListItem from "components/pages/Order/components/tabs/VariantsTab/components/VariantListItem";
+import OrderSizeListItem from "components/pages/Order/components/tabs/VariantsTab/components/OrderSizeListItem";
 //
 import css from "./style.module.scss";
 
@@ -13,6 +13,7 @@ type Props = {
 
 const VariantsTab: FC<Props> = ({ orderId }) => {
     const order = useSelector(orderSelectors.createGetOrderById(orderId));
+    const orderSizeIds = map(order?.orderSizes || [], "id");
 
     if (!order) {
         return null;
@@ -21,8 +22,8 @@ const VariantsTab: FC<Props> = ({ orderId }) => {
     return (
         <div className={css["VariantsTab"]}>
             <div className={css["VariantsTab__list"]}>
-                {map([1, 1, 1, 1, 1, 1, 1], id => (
-                    <VariantListItem variantId={id} />
+                {map(orderSizeIds, id => (
+                    <OrderSizeListItem orderSizeId={id} key={id} />
                 ))}
             </div>
         </div>

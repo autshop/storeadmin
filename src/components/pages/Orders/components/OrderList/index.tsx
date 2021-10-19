@@ -1,5 +1,5 @@
 import { FC, memo } from "react";
-import { map } from "lodash";
+import { map, filter } from "lodash";
 import { useSelector } from "react-redux";
 //
 import OrderListItem from "components/pages/Orders/components/OrderList/components/OrderListItem";
@@ -9,7 +9,10 @@ import css from "./style.module.scss";
 
 const OrderList: FC = () => {
     const orders = useSelector(orderSelectors.getOrders);
-    const orderIds = map(orders, "id");
+    const orderIds = map(
+        filter(orders, ({ orderState }) => orderState === "FINALIZED"),
+        "id"
+    );
 
     return (
         <div className={css["OrderList"]}>
