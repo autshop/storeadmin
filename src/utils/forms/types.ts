@@ -11,3 +11,8 @@ export type NewCollectionFormTypes = {
     name: string;
     description: string;
 };
+
+export type StorefrontPropertiesFormTypes = {
+    siteNavBarHeader: string;
+    siteBackgroundColor: string;
+};

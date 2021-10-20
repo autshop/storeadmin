@@ -19,6 +19,7 @@ import ProductAdd from "components/pages/ProductAdd";
 import CollectionAdd from "components/pages/CollectionAdd";
 //
 import "./styles/global.style.scss";
+import StorefrontProperties from "./components/pages/StorefrontProperties";
 
 const App: FC = () => {
     const isAppInitialized = useSelector(appSelectors.getIsInitialized);
@@ -83,6 +84,11 @@ const App: FC = () => {
                 <Route path="/collections/:id" exact>
                     <RouteGuard>
                         <Collection />
+                    </RouteGuard>
+                </Route>
+                <Route path="/storefrontProperties" exact>
+                    <RouteGuard>
+                        <StorefrontProperties />
                     </RouteGuard>
                 </Route>
                 <Route path="/">

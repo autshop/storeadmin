@@ -4,6 +4,10 @@ import { AppState, initialState as initialAppState } from "redux/app/state";
 import { OrderState, initialState as initialOrderState } from "redux/order/state";
 import { VariantState, initialState as initialVariantState } from "redux/variant/state";
 import { CollectionState, initialState as initialCollectionState } from "redux/collection/state";
+import {
+    StorefrontPropertyState,
+    initialState as initialStorefrontPropertyState
+} from "redux/storefrontProperty/state";
 
 export type StoreState = {
     product: ProductState;
@@ -12,6 +16,7 @@ export type StoreState = {
     order: OrderState;
     variant: VariantState;
     collection: CollectionState;
+    storefrontProperty: StorefrontPropertyState;
 };
 
 const initialState: StoreState = {
@@ -20,7 +25,8 @@ const initialState: StoreState = {
     app: initialAppState,
     order: initialOrderState,
     variant: initialVariantState,
-    collection: initialCollectionState
+    collection: initialCollectionState,
+    storefrontProperty: initialStorefrontPropertyState
 };
 
 export default initialState;
