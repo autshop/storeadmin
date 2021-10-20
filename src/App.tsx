@@ -20,6 +20,7 @@ import CollectionAdd from "components/pages/CollectionAdd";
 //
 import "./styles/global.style.scss";
 import StorefrontProperties from "./components/pages/StorefrontProperties";
+import Login from "./components/pages/Login";
 
 const App: FC = () => {
     const isAppInitialized = useSelector(appSelectors.getIsInitialized);
@@ -43,7 +44,7 @@ const App: FC = () => {
             <Switch>
                 <Route path="/login" exact>
                     <RouteGuard inverse redirectTo={"/products"}>
-                        {null}
+                        <Login />
                     </RouteGuard>
                 </Route>
                 <Route path="/orders" exact>

@@ -16,3 +16,8 @@ export type StorefrontPropertiesFormTypes = {
     siteNavBarHeader: string;
     siteBackgroundColor: string;
 };
+
+export type LoginFormTypes = {
+    email: string;
+    password: string;
+};

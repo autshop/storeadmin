@@ -12,7 +12,7 @@ const StorefrontProperties: FC = () => {
 
     useEffect(() => {
         dispatch(StorefrontPropertyActions.loadStorefrontPropertyRequest());
-    }, []);
+    }, [dispatch]);
 
     const storefrontPropertiesTabs: Tab[] = useMemo(
         () => [
