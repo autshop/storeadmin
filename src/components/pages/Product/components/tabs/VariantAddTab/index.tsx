@@ -34,6 +34,16 @@ const VariantAddTab: FC<Props> = ({ productId }) => {
                         required={true}
                     />
                 </div>
+                <div>
+                    <TextField
+                        id="price"
+                        name="price"
+                        label="Price"
+                        type="number"
+                        inputRef={register}
+                        required={true}
+                    />
+                </div>
                 <div style={{ paddingTop: "16px" }}>
                     <Button type="submit" variant="contained" color="primary">
                         <b>CREATE</b>

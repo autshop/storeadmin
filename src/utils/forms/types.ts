@@ -5,6 +5,7 @@ export type NewProductFormTypes = {
 export type NewVariantFormTypes = {
     name: string;
     description: string;
+    price: number;
 };
 
 export type NewCollectionFormTypes = {

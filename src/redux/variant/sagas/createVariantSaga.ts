@@ -6,7 +6,7 @@ import { VariantActions } from "../slice";
 
 function* createVariantSaga({
     payload: {
-        data: { name, description },
+        data: { name, description, price },
         historyPush,
         productId
     }
@@ -18,7 +18,8 @@ function* createVariantSaga({
             sku: 1,
             status: "active",
             imageSrc: "",
-            productId
+            productId,
+            price
         });
 
         yield put(VariantActions.createVariantSuccess());

@@ -1,10 +1,10 @@
 import { FC, memo } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 //
 import orderSelectors from "redux/order/selectors";
 //
 import css from "./style.module.scss";
-import { useHistory } from "react-router-dom";
 
 type Props = {
     orderId: number;

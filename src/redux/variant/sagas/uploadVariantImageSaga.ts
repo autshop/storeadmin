@@ -14,9 +14,10 @@ function* uploadVariantImageSaga({
         });
 
         yield put(VariantActions.uploadVariantImageSuccess());
-        yield put(VariantActions.loadVariantsRequest());
     } catch (e) {
         yield put(VariantActions.uploadVariantImageFailure({ error: "error" }));
+    } finally {
+        yield put(VariantActions.loadVariantsRequest());
     }
 }
 

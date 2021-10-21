@@ -23,7 +23,7 @@ const VariantSlice = createSlice({
         createVariantRequest: (
             state,
             action: PayloadAction<{
-                data: { name: string; description: string };
+                data: { name: string; description: string; price: number };
                 historyPush: Function;
                 productId: number;
             }>

@@ -45,14 +45,6 @@ const GeneralInformationTab: FC<Props> = ({ orderId }) => {
                     label={"Total"}
                 />
             </div>
-            <div className={css["GeneralInformationTab__buttons"]}>
-                <Button variant="contained" color="secondary">
-                    CANCEL
-                </Button>
-                <Button variant="contained" color="primary">
-                    ACCEPT
-                </Button>
-            </div>
         </div>
     );
 };
